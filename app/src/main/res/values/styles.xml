@@ -1,0 +1,19 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--没有标题-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--页面背景-->
+        <item name="android:windowBackground">@color/cl_page_bg</item>
+        <!--禁止弹出输入法-->
+        <item name="android:windowSoftInputMode">adjustPan|stateAlwaysHidden</item>
+        <!--设置成为竖屏-->
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+</resources>

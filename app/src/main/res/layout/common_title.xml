@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_title"
+    style="@style/common_title_root"
+    android:background="@color/cl_title"
+    android:visibility="visible"
+    app:layout_scrollFlags="scroll">
+
+    <!-- 左边返回按钮 -->
+    <ImageView
+        android:id="@+id/iv_common_back"
+        style="@style/common_title_back"
+        android:src="@drawable/ic_back"
+        android:visibility="gone" />
+
+    <!-- 中间字体 -->
+    <TextView
+        android:id="@+id/tv_common_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp_44"
+        android:layout_marginRight="@dimen/dp_44"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:text="标题"
+        android:textColor="@color/cl_white"
+        android:textSize="@dimen/sp_17"
+        android:visibility="gone" />
+
+    <!-- 右边文字 -->
+    <TextView
+        android:id="@+id/tv_common_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_12"
+        android:gravity="center"
+        android:text="右边的字体"
+        android:textColor="@color/cl_white"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone" />
+
+    <!-- 右边文字  次级 -->
+    <TextView
+        android:id="@+id/tv_common_second_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_toLeftOf="@id/tv_common_right"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_3"
+        android:paddingRight="@dimen/dp_3"
+        android:text="字体"
+        android:textColor="@color/cl_white"
+        android:textSize="@dimen/sp_16"
+        android:visibility="gone" />
+
+    <!--右边图片-->
+    <ImageView
+        android:id="@+id/iv_common_right"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_12"
+        android:scaleType="centerInside"
+        android:visibility="gone" />
+
+
+    <!-- 右边二级图片   在一级的左边 -->
+    <ImageView
+        android:id="@+id/iv_common_second_right"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/iv_common_right"
+        android:scaleType="centerInside"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.was.minemvc.fragment.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_text" />
+
+    <fragment
+        android:id="@+id/navigation_cinema"
+        android:name="com.was.minemvc.fragment.CinemaFragment"
+        android:label="@string/title_cinema"
+        tools:layout="@layout/fragment_text" />
+
+    <fragment
+        android:id="@+id/navigation_community"
+        android:name="com.was.minemvc.fragment.CommunityFragment"
+        android:label="@string/title_community"
+        tools:layout="@layout/fragment_text" />
+
+    <fragment
+        android:id="@+id/navigation_my"
+        android:name="com.was.minemvc.fragment.MyFragment"
+        android:label="@string/title_my"
+        tools:layout="@layout/fragment_text" />
+</navigation>

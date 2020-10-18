@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/cl_red_d0252e</color>
+    <!--    <color name="colorPrimaryDark">#11999999</color>-->
+    <color name="colorPrimaryDark">@color/cl_red_d0252e</color>
+    <color name="colorAccent">@color/cl_gray_80</color>
+
+    <color name="cl_page_bg">@color/cl_gray_f9</color>
+
+    <!--轮播图 焦点位置-->
+    <color name="cl_rpv_focus">@color/cl_white</color>
+    <!--  轮播图 焦点未-->
+    <color name="cl_rpv_normal">@color/cl_gray_6</color>
+    <!-- 标题颜色-->
+    <color name="cl_title">@color/cl_red_d0252e</color>
+    <color name="cl_title_text">@color/cl_white</color>
+
+    <color name="cl_red_d0252e">#FFD0252E</color>
+    <color name="colorBlue">#1577FE</color>
+    <color name="colorGray6">#666666</color>
+
+</resources>

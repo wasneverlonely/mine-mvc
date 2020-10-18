@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <size
+        android:width="@dimen/dp_90"
+        android:height="@dimen/dp_90" />
+
+    <solid android:color="@color/cl_placeholder" />
+
+</shape>

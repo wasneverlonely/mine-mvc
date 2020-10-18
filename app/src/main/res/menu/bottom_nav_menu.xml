@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/icon_home_selector"
+        android:title="@string/title_home" />
+
+
+    <item
+        android:id="@+id/navigation_cinema"
+        android:icon="@drawable/icon_cinema_selector"
+        android:title="@string/title_cinema" />
+
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@drawable/icon_community_selector"
+        android:title="@string/title_community"/>
+
+
+    <item
+        android:id="@+id/navigation_my"
+        android:icon="@drawable/icon_my_selector"
+        android:title="@string/title_my"/>
+</menu>

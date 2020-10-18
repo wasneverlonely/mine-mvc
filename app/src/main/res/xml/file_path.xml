@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!--<resources xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  name  一个虚设的文件名字  对外可见路径的一部分，隐藏真实文件目录 -->
+    <!--path  是一个相对目录   相对于当前的自表现  根目录-->
+    <!-- files-path  标识内部内存卡根目录   等价于 context.getFilesDir()  /data/user/0/cn.teachcourse.demos/files -->
+
+
+    <!--2、对应应用默认缓存根目录：Context.getCacheDir()-->
+    <cache-path
+        name="app_cache"
+        path="/" />
+
+    <!--3、对应外部内存卡根目录：Environment.getExternalStorageDirectory()-->
+    <external-path
+        name="ext_root"
+        path="/" />
+
+
+</paths>
+
+

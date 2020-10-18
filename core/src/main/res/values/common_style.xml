@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  总结  项目常用的的样式 -->
+
+
+    <!-- 基本样式 -->
+    ///////////////////////////////////////////////////////////////////////////
+    <!--宽w 高w -->
+    <style name="common_w_w">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--宽w 高m -->
+    <style name="common_w_m">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--宽m 高m -->
+    <style name="common_m_m">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--宽m 高w -->
+    <style name="common_m_w">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 比例 宽1 高m -->
+    <style name="common_scale_m">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- 比例 宽1 高w -->
+    <style name="common_scale_w">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!--比例  宽w 高1 -->
+    <style name="common_w_scale">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!--比例 宽m 高1 -->
+    <style name="common_m_scale">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+
+    <!--  宽m 高32-->
+    <style name="common_m_32">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_32</item>
+    </style>
+
+    <!-- 宽m 高40-->
+    <style name="common_m_40">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+    </style>
+
+    <!-- 宽m 高45-->
+    <style name="common_m_45">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_45</item>
+    </style>
+
+    <!-- 宽m 高48 -->
+    <style name="common_m_48">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_48</item>
+    </style>
+
+    <!--宽20 高20-->
+    <style name="common_box_20">
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+    </style>
+
+    <!--宽24 高24-->
+    <style name="common_box_24">
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+    </style>
+
+
+    <!-- 布局的一些样式 -->
+    ///////////////////////////////////////////////////////////////////////////
+    <!-- ViewGroup 宽m  高m -->
+    <style name="ll_m_m" parent="common_m_m">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!--ViewGroup  宽m  高w -->
+    <style name="ll_m_w" parent="common_m_w">
+        <item name="android:background">@color/cl_white</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+    <!--ViewGroup  宽满  高 自适应  左右间隔-->
+    <style name="ll_m_w_lr" parent="ll_m_w">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!--ViewGroup  宽满  高 自适应  左右间隔 点击样式-->
+    <style name="ll_item_root" parent="ll_m_w_lr">
+        <item name="background">@drawable/sl_click_item_bg</item>
+    </style>
+
+
+    <!--ViewGroup  宽满  高 自适应  左右间隔 点击-->
+    <style name="ll_m_w_click" parent="ll_m_w_lr">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!--ViewGroup  高度自定义  高最低48  -->
+    <style name="ll_bar" parent="common_m_w">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/cl_white</item>
+        <item name="android:minHeight">@dimen/dp_48</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">@dimen/dp_6</item>
+        <item name="android:paddingBottom">@dimen/dp_6</item>
+    </style>
+
+    <!-- ViewGroup 高度自定义  高最低48  左右间隔 -->
+    <style name="ll_bar_lf" parent="ll_bar">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!-- 高度自定义 高最低48 四周间隔 -->
+    <style name="ll_bar_padding" parent="ll_bar_lf">
+        <item name="android:paddingTop">@dimen/dp_10</item>
+        <item name="android:paddingBottom">@dimen/dp_10</item>
+    </style>
+
+
+    <!-- ViewGroup  48 -->
+    <style name="ll_m_48" parent="common_m_48">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup  48 左右间距 -->
+    <style name="ll_m_48_lf" parent="ll_m_48">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!-- ViewGroup  48 左右间距  点击-->
+    <style name="ll_m_48_click" parent="@style/ll_m_48">
+        <item name="android:background">@drawable/sl_click_item_bg</item>
+    </style>
+
+    <!-- ViewGroup  48 左右间距  点击-->
+    <style name="ll_m_48_lf_click" parent="@style/ll_m_48_lf">
+        <item name="android:background">@drawable/sl_click_item_bg</item>
+    </style>
+
+    <!-- ViewGroup  45 左右间距 -->
+    <style name="ll_m_45" parent="common_m_45">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup  45 左右间距 -->
+    <style name="ll_m_45_lf" parent="ll_m_45">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!-- ViewGroup  40 -->
+    <style name="ll_m_40" parent="common_m_40">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup  40  左右间距 -->
+    <style name="ll_m_40_lf" parent="ll_m_40">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <style name="ll_m_40_lf_20" parent="ll_m_40">
+        <item name="android:paddingLeft">@dimen/dp_20</item>
+        <item name="android:paddingRight">@dimen/dp_20</item>
+    </style>
+
+    <!-- ViewGroup  32 -->
+    <style name="ll_m_32" parent="common_m_32">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup  32   左右间距  -->
+    <style name="ll_m_32_lf" parent="ll_m_32">
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+    </style>
+
+    <!--ViewGroup   横向 比例  高度自适应 -->
+    <style name="ll_scale_w" parent="common_scale_w">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup   横向 比例  高度充满 -->
+    <style name="ll_scale_m" parent="common_scale_m">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!--ViewGroup   横向 比例  高度自适应 -->
+    <style name="ll_w_scale" parent="common_w_scale">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+    <!-- ViewGroup   横向 比例  高度充满 -->
+    <style name="ll_m_scale" parent="common_m_scale">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/cl_white</item>
+    </style>
+
+
+    <!--图片 inside-->
+    <style name="common_iv_inside">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!--图片 centerCrop-->
+    <style name="common_iv_w_w_inside" parent="common_w_w">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!--图片 centerCrop-->
+    <style name="common_iv_crop">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!--  字体 72 -->
+    <style name="common_min_72" parent="common_w_w">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:minWidth">@dimen/dp_72</item>
+    </style>
+
+    <!-- 中间部分 -->
+    <style name="common_middle" parent="@style/common_scale_w">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!--通用et中间-->
+    <style name="common_et_middle" parent="@style/common_middle">
+        <item name="android:background">@null</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:paddingLeft">@dimen/et_margin_left</item>
+        <item name="android:paddingRight">@dimen/et_margin_right</item>
+    </style>
+
+    <!-- 分割线 -->
+    <style name="common_di_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/px_1</item>
+    </style>
+
+    <!-- 分割线 -->
+    <style name="common_di_vertical">
+        <item name="android:layout_width">@dimen/px_1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
+    <!--项目 edtiText样式 修改光标太宽-->
+    <style name="common_et">
+        <item name="android:background">@null</item>
+        <item name="android:paddingLeft">@dimen/et_margin_left</item>
+        <item name="android:paddingRight">@dimen/et_margin_right</item>
+    </style>
+
+
+    <!--项目通用右边 iv -->
+    <style name="common_iv_right" parent="@style/common_right">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!-- 通用项目右边 -->
+    <style name="common_right" parent="@style/common_w_w">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+
+    <style name="common_title_root" parent="common_m_48"></style>
+
+
+    <!-- 项目返回 -->
+    <style name="common_title_back">
+        <item name="android:layout_width">@dimen/dp_44</item>
+        <item name="android:layout_height">@dimen/dp_44</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/dp_10</item>
+        <item name="android:scaleType">centerInside</item>
+
+    </style>
+
+    <!-- 中间文字 -->
+    <style name="common_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/dp_44</item>
+        <item name="android:layout_marginRight">@dimen/dp_44</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+
+</resources>

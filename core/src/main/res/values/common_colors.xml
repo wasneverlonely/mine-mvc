@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="cl_ripple">@color/cl_gray_d7</color> <!-- 点击波纹的颜色  -->
+    <color name="cl_pressed">@color/cl_gray_d7</color><!-- 点击下去的颜色 -->
+    <color name="cl_placeholder">#11999999</color>
+
+    <color name="cl_white">#ffffff</color>
+    <color name="cl_white_e3">#e3e3e3</color>
+    <color name="cl_black">#000000</color>
+    <color name="cl_transparent">#00000000</color>
+    <color name="cl_black_1">#111111</color>
+    <color name="cl_gray_3">#333333</color>
+    <color name="cl_gray_6">#666666</color>
+    <color name="cl_gray_80">#808080</color>
+    <color name="cl_gray_9">#999999</color>
+    <color name="cl_gray_f9">#f9f9f9</color>
+    <color name="cl_gray_d7">#d7d7d7</color>
+
+    <color name="et_text_color">@color/cl_black_1</color>
+
+</resources>

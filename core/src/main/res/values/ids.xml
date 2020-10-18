@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="viewpager_inner" type="id" />
+
+    <item name="BaseQuickAdapter_viewholder_support" type="id" />
+    <item name="BaseQuickAdapter_swiping_support" type="id" />
+    <item name="BaseQuickAdapter_dragging_support" type="id" />
+    <item name="BaseQuickAdapter_databinding_support" type="id" />
+
+
+    <!--statusBarUtils-->
+    <item name="statusbarutil_fake_status_bar_view" type="id" />
+    <item name="statusbarutil_translucent_view" type="id" />
+    <item name="glide_id" type="id" />
+
+</resources>

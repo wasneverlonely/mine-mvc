@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">mine库</string>
+
+    <string name="str_user_name_hint">请输入用户名</string>
+    <string name="str_user_password_hint">请输入密码</string>
+    <string name="str_login">登录</string>
+
+    <string name="title_home">首页</string>
+    <string name="title_cinema">影院</string>
+    <string name="title_community">社区</string>
+    <string name="title_my">我的</string>
+
+</resources>
