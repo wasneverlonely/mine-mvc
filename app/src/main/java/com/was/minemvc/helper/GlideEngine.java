@@ -1,4 +1,4 @@
-package com.was.minemvc.widget;
+package com.was.minemvc.helper;
 
 import android.content.Context;
 import android.graphics.Bitmap;

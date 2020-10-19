@@ -1,9 +1,8 @@
-package com.was.minemvc.common;
+package com.was.minemvc.data;
 
-import com.was.minemvc.bean.HttpResult;
-import com.was.minemvc.bean.ProvinceBean;
-import com.was.minemvc.bean.SchoolUniformBean;
-import com.was.minemvc.bean.UserBean;
+import com.was.minemvc.data.bean.ProvinceBean;
+import com.was.minemvc.data.bean.SchoolUniformBean;
+import com.was.minemvc.data.bean.UserBean;
 
 import java.util.List;
 

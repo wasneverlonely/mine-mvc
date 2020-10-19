@@ -3,13 +3,10 @@ package com.was.minemvc.adapter;
 
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.was.core.widget.recycler.BaseRefreshAdapter;
+import com.was.core.adapter.BaseRefreshAdapter;
 import com.was.minemvc.R;
-import com.was.minemvc.bean.SchoolUniformBean;
-
-import org.jetbrains.annotations.NotNull;
+import com.was.minemvc.data.bean.SchoolUniformBean;
 
 import java.util.List;
 

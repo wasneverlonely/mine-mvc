@@ -1,4 +1,4 @@
-package com.was.core.common.image;
+package com.was.core.utils;
 
 import android.content.Context;
 import android.os.Looper;

@@ -1,88 +1,80 @@
-package com.was.core.base;
-
+package com.was.core.common.base;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.was.core.common.http.ProgressDialogHandler;
 import com.was.core.utils.IntentUtils;
+import com.was.core.utils.ToastUtils;
 import com.was.core.utils.Utils;
 
 
-/**
- * 工具类
- */
-public class ToolFragment extends Fragment {
+public class BaseToolActivity extends AppCompatActivity {
+
 
     /**
      * 事件返回
      *
-     * @param ivBack
+     * @param resID
      * @param click
      */
-    protected void setBack(ImageView ivBack, View.OnClickListener click) {
+    protected void setBack(int resID, View.OnClickListener click) {
+        ImageView ivBack = findViewById(resID);
         TitleManager.setBack(ivBack, click);
     }
 
     /**
-     * @param tvTitle
+     * 设置中间字体
+     *
+     * @param resID
      * @param title
      */
-    protected void setTitleText(TextView tvTitle, CharSequence title) {
+    protected void setTitleText(int resID, CharSequence title) {
+        TextView tvTitle = findViewById(resID);
         TitleManager.setTitleText(tvTitle, title);
     }
 
 
     /**
-     * 设置标题右边的字体
+     * 设置右边的字体
      *
-     * @param tvRight
+     * @param resID
      * @param rightText
      * @param click
      */
-    protected void setTitleRightText(TextView tvRight, CharSequence rightText, View.OnClickListener click) {
-        TitleManager.setTitleRightText(tvRight, rightText, click);
+    protected void setTitleRightText(int resID, String rightText, View.OnClickListener click) {
+        TextView tvTitleRight = findViewById(resID);
+        TitleManager.setTitleRightText(tvTitleRight, rightText, click);
     }
 
-
     /**
-     * 设置标题右边图片
+     * 设置右边的图片
      *
-     * @param ivRight
+     * @param resID
      * @param iconResID
      * @param click
      */
-    public void setTitleRightIcon(ImageView ivRight, int iconResID, View.OnClickListener click) {
-        TitleManager.setTitleRightIcon(ivRight, iconResID, click);
+    protected void setTitleRightIcon(int resID, int iconResID, View.OnClickListener click) {
+        ImageView ivTitleRightIcon = findViewById(resID);
+        TitleManager.setTitleRightIcon(ivTitleRightIcon, iconResID, click);
     }
 
 
     /**
      * 设置次级右边图片
      *
-     * @param ivSecondRight
+     * @param resID
      * @param iconResID
      * @param click
      */
-    public void setTitleSecondRightIcon(ImageView ivSecondRight, int iconResID, View.OnClickListener click) {
-        TitleManager.setTitleSecondRightIcon(ivSecondRight, iconResID, click);
-    }
-
-
-    /**
-     * 隐藏标题
-     *
-     * @param isVisible
-     */
-    public void setVisibleTitle(View view, int resID, boolean isVisible) {
-        RelativeLayout rlTitle = view.findViewById(resID);
-        TitleManager.setVisibleTitle(rlTitle, isVisible);
+    protected void setTitleSecondRightIcon(int resID, int iconResID, View.OnClickListener click) {
+        ImageView ivTitleSecondRightIcon = findViewById(resID);
+        TitleManager.setTitleSecondRightIcon(ivTitleSecondRightIcon, iconResID, click);
     }
 
 
@@ -102,22 +94,18 @@ public class ToolFragment extends Fragment {
      * @param bundle
      */
     protected void startActivity(Class<? extends Activity> activity, Bundle bundle) {
-        IntentUtils.startActivity(getActivity(), activity, bundle);
+        IntentUtils.startActivity(this, activity, bundle);
     }
 
 
     /**
-     * 退出
-     *
      * @param bundle
      */
     protected void setResultActivity(Bundle bundle) {
-        IntentUtils.setResultBundleActivity(getActivity(), bundle);
+        IntentUtils.setResultBundleActivity(this, bundle);
     }
 
-    /**
-     * 加载条的引用
-     */
+    //加载条的引用
     ProgressDialogHandler mProgressDialogHandler;
 
     /**
@@ -126,7 +114,7 @@ public class ToolFragment extends Fragment {
     public void showProgressDialog() {
         if (mProgressDialogHandler != null) {
             dismissProgressDialog();
-            mProgressDialogHandler = new ProgressDialogHandler(getContext());
+            mProgressDialogHandler = new ProgressDialogHandler(this);
         }
         mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
     }
@@ -140,7 +128,6 @@ public class ToolFragment extends Fragment {
             mProgressDialogHandler = null;
         }
     }
-
 
     @Override
     public void onStop() {
@@ -167,6 +154,7 @@ public class ToolFragment extends Fragment {
     public String getTextViewText(TextView tv) {
         return Utils.getTextViewText(tv);
     }
+
 
     /**
      * 设置textView 空的占位符
@@ -217,7 +205,7 @@ public class ToolFragment extends Fragment {
      * @param hint
      * @return
      */
-    public boolean toastTextEmpty(CharSequence text, CharSequence hint) {
+    public boolean showToastTextEmpty(CharSequence text, CharSequence hint) {
         return Utils.toastTextEmpty(text, hint);
     }
 
@@ -228,7 +216,7 @@ public class ToolFragment extends Fragment {
      * @param hint
      * @return
      */
-    public boolean toastTextEmpty(TextView textView, CharSequence hint) {
+    public boolean showToastTextEmpty(TextView textView, CharSequence hint) {
         return Utils.toastTextEmpty(textView, hint);
     }
 
@@ -241,9 +229,18 @@ public class ToolFragment extends Fragment {
      * @param <T>
      * @return
      */
-    public <T> boolean toastNull(T t, CharSequence hint) {
+    public <T> boolean showToastNull(T t, CharSequence hint) {
         return Utils.toastNull(t, hint);
     }
 
+
+    /**
+     * 弹出Toast 提示框
+     *
+     * @param text
+     */
+    public void showToast(CharSequence text) {
+        ToastUtils.showShort(text);
+    }
 
 }

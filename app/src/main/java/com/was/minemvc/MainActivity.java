@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.was.core.utils.IntentUtils;
+import com.was.minemvc.common.base.BaseActivity;
 import com.was.minemvc.ui.BannerActivity;
 import com.was.minemvc.ui.BottomNavActivity;
 import com.was.minemvc.ui.LoginActivity;
@@ -14,12 +15,15 @@ import com.was.minemvc.ui.RefreshListActivity;
 import com.was.minemvc.ui.SeletePictureActivity;
 import com.was.minemvc.ui.TabLayoutActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setBack();
+        setTitleText("mine-mvc");
     }
 
     public void clickBottomNav(View view) {
@@ -45,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickSeletePicture(View view) {
         IntentUtils.startActivity(MainActivity.this, SeletePictureActivity.class);
     }
+
     public void clickBanner(View view) {
         IntentUtils.startActivity(MainActivity.this, BannerActivity.class);
     }

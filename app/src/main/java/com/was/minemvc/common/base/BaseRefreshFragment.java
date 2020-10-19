@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.was.core.base.IRefresh;
-import com.was.core.widget.recycler.BaseRefreshAdapter;
+import com.was.core.common.base.IRefresh;
+import com.was.core.adapter.BaseRefreshAdapter;
 import com.was.minemvc.R;
 
 import java.util.List;
@@ -98,7 +98,7 @@ public abstract class BaseRefreshFragment<T, K extends BaseViewHolder> extends B
 
 
     @Override
-    public void setView(RecyclerView recyclerView, SwipeRefreshLayout srhLayout) {
+    public void setView(SwipeRefreshLayout srhLayout, RecyclerView recyclerView) {
         checkNullException(recyclerView);
         checkNullException(srhLayout);
 
@@ -185,7 +185,7 @@ public abstract class BaseRefreshFragment<T, K extends BaseViewHolder> extends B
     }
 
     @Override
-    public void requestFail(boolean isRefresh, Throwable e) {
+    public void requestFail( Throwable e,boolean isRefresh) {
         if (isRefresh) {
             mSrhLayout.setRefreshing(false);
             if (mRefreshAdapter != null) {

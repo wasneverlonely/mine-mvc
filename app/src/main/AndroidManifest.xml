@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".common.App"
@@ -26,7 +27,7 @@
         </activity>
 
 
-        <activity android:name=".ui.BannerActivity"></activity>
+        <activity android:name=".ui.BannerActivity" />
         <activity android:name=".ui.SeletePictureActivity" />
         <activity android:name=".ui.TabLayoutActivity" />
         <activity android:name=".ui.RefreshListActivity" />

@@ -16,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//tabLayout
 public class TabLayoutActivity extends BaseTabPageActivity {
 
     @BindView(R.id.tabLayout)

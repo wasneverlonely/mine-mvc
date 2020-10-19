@@ -1,4 +1,4 @@
-package com.was.minemvc.bean;
+package com.was.minemvc.data;
 
 
 /**

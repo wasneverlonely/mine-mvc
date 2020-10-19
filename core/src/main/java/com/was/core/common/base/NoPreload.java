@@ -1,4 +1,4 @@
-package com.was.core.base;
+package com.was.core.common.base;
 
 
 /**

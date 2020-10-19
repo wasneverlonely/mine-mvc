@@ -1,21 +1,15 @@
 package com.was.minemvc.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.was.core.common.http.ProgressSubscriber;
 import com.was.core.utils.ToastUtils;
 import com.was.minemvc.R;
 import com.was.minemvc.adapter.CommonListAdapter;
-import com.was.minemvc.bean.HttpResult;
-import com.was.minemvc.bean.ProvinceBean;
+import com.was.minemvc.data.HttpResult;
+import com.was.minemvc.data.bean.ProvinceBean;
 import com.was.minemvc.common.HttpHelper;
 import com.was.minemvc.common.base.BaseActivity;
 
@@ -43,6 +37,18 @@ public class CommonListActivity extends BaseActivity {
         requestData();
     }
 
+    CommonListAdapter mAdapter;
+
+    private void initView() {
+
+        mAdapter = new CommonListAdapter(R.layout.item_common_list);
+        recyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ToastUtils.showShort(mAdapter.getData().get(position).getName());
+        });
+    }
+
     private void requestData() {
 
         Observable<HttpResult<List<ProvinceBean>>> observable = HttpHelper.getApi().lookProvince();
@@ -59,21 +65,4 @@ public class CommonListActivity extends BaseActivity {
             }
         });
     }
-
-    CommonListAdapter mAdapter;
-
-    void initView() {
-
-        mAdapter = new CommonListAdapter(R.layout.item_list, null);
-        recyclerView.setAdapter(mAdapter);
-
-
-        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                ToastUtils.showShort(mAdapter.getData().get(position).getName());
-            }
-        });
-    }
-
 }

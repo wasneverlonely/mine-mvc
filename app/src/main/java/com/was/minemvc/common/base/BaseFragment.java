@@ -3,9 +3,9 @@ package com.was.minemvc.common.base;
 
 import android.view.View;
 
-import com.was.core.base.ToolFragment;
+import com.was.core.common.base.BaseToolFragment;
 
-public class BaseFragment extends ToolFragment {
+public class BaseFragment extends BaseToolFragment {
 
 
     /**

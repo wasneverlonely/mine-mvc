@@ -1,11 +1,11 @@
-package com.was.core.base;
+package com.was.core.common.base;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.was.core.widget.recycler.BaseRefreshAdapter;
+import com.was.core.adapter.BaseRefreshAdapter;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */ //
 public interface IRefresh<T, K extends BaseViewHolder> extends SwipeRefreshLayout.OnRefreshListener, OnLoadMoreListener {
 
-    void setView(RecyclerView recyclerView, SwipeRefreshLayout srhLayout);
+    void setView(SwipeRefreshLayout srhLayout, RecyclerView recyclerView);
 
     void start(boolean refresh);
 
@@ -29,7 +29,7 @@ public interface IRefresh<T, K extends BaseViewHolder> extends SwipeRefreshLayou
 
     void requestData(boolean isRefresh); //请求数据
 
-    void requestFail(boolean isRefresh, Throwable e); //数据加载失败
+    void requestFail(Throwable e, boolean isRefresh); //数据加载失败
 
     void requestSuccess(List<T> datas, boolean isRefresh); //数据加载成功
 

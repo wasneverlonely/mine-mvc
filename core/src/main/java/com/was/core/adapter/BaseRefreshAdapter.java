@@ -1,4 +1,4 @@
-package com.was.core.widget.recycler;
+package com.was.core.adapter;
 
 import androidx.annotation.NonNull;
 

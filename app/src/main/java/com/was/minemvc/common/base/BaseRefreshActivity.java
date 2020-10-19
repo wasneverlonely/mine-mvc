@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.was.core.base.IRefresh;
-import com.was.core.widget.recycler.BaseRefreshAdapter;
+import com.was.core.common.base.IRefresh;
+import com.was.core.adapter.BaseRefreshAdapter;
 import com.was.minemvc.R;
 
 import java.util.List;
@@ -22,12 +22,12 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
 
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSrhLayout;
+    private BaseRefreshAdapter mRefreshAdapter;//刷新adapter
 
     private int pageSize = 10;// 每页加载的条数
     private int pageIndex;// 加载下标
-    public BaseRefreshAdapter mRefreshAdapter;//刷新adapter
 
-    public boolean mLoadMoreEnable = true;
+    public boolean mLoadMoreEnable = true;//上拉开关
 
     public boolean isLoadMoreEnable() {
         return mLoadMoreEnable;
@@ -38,7 +38,7 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     }
 
     /**
-     * 得到每页条数
+     * 获取页下标
      *
      * @param isRefresh
      * @return
@@ -55,15 +55,6 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     public int getPageSize() {
         return pageSize;
     }
-
-//    /**
-//     * 返回 加载页数的下标
-//     *
-//     * @return
-//     */
-//    public int getPageIndex() {
-//        return pageIndex;
-//    }
 
     /**
      * 设置每页条数
@@ -89,7 +80,7 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     }
 
     @Override
-    public void setView(RecyclerView recyclerView, SwipeRefreshLayout srhLayout) {
+    public void setView(SwipeRefreshLayout srhLayout, RecyclerView recyclerView) {
         checkNullException(recyclerView);
         checkNullException(srhLayout);
 
@@ -97,56 +88,9 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
         this.mSrhLayout = srhLayout;
     }
 
-
-    /**
-     * 下拉刷新监听
-     */
-    @Override
-    public void onRefresh() {
-        mRefreshAdapter.getLoadMoreModule().setEnableLoadMore(false);// 不能上拉加载
-        requestData(true);
-    }
-
-
-    /**
-     * 上拉加载监听
-     */
-    @Override
-    public void onLoadMore() {
-        if (mSrhLayout.isRefreshing())
-            mSrhLayout.setRefreshing(false);
-        mSrhLayout.setEnabled(false);
-        requestData(false);
-    }
-
-    /**
-     * 开启加载动画
-     */
-    public void requestRefreshing() {
-        if (!mSrhLayout.isRefreshing()) {
-            mSrhLayout.setRefreshing(true);
-        }
-        requestData(true);
-    }
-
-
-    public void start() {
+    protected void start() {
         start(true);
     }
-
-    boolean mHasItemDecoration = true;
-
-
-    public boolean isHasItemDecoration() {
-        return mHasItemDecoration;
-    }
-
-    public void setHasItemDecoration(boolean mHasItemDecoration) {
-        this.mHasItemDecoration = mHasItemDecoration;
-    }
-
-
-    public int colorSchemeResId = R.color.colorPrimary;// srhLayout 颜色主题id
 
     /**
      * 开始加载数据和动画
@@ -159,8 +103,44 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
         mSrhLayout.setOnRefreshListener(this);
         initView();
         if (request) {
-            requestRefreshing();
+            if (!mSrhLayout.isRefreshing()) {
+                mSrhLayout.setRefreshing(true);
+            }
+            requestData(true);
         }
+    }
+
+
+    /**
+     * 下拉刷新监听
+     */
+    @Override
+    public void onRefresh() {
+        mRefreshAdapter.getLoadMoreModule().setEnableLoadMore(false);// 禁止上拉加载
+        requestData(true);
+    }
+
+    /**
+     * 上拉加载监听
+     */
+    @Override
+    public void onLoadMore() {
+        if (mSrhLayout.isRefreshing())
+            mSrhLayout.setRefreshing(false);
+        mSrhLayout.setEnabled(false);
+        requestData(false);
+    }
+
+
+    public int colorSchemeResId = R.color.colorPrimary;// srhLayout 颜色主题id
+    boolean mHasItemDecoration = true;
+
+    public boolean isHasItemDecoration() {
+        return mHasItemDecoration;
+    }
+
+    public void setHasItemDecoration(boolean mHasItemDecoration) {
+        this.mHasItemDecoration = mHasItemDecoration;
     }
 
     /**
@@ -182,9 +162,6 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     public void initRecyclerView(BaseRefreshAdapter refreshAdapter, RecyclerView.ItemDecoration itemDecoration,
                                  RecyclerView.OnItemTouchListener... onItemTouchListeners) {
 
-//        if (checkNulls(refreshAdapter, mRefreshAdapter)) {
-//            throw new IllegalArgumentException("refreshAdapter  is not  null");
-//        }
         if (refreshAdapter == null && mRefreshAdapter == null) {
             throw new IllegalArgumentException("refreshAdapter  is not  null");
         }
@@ -215,11 +192,10 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     /**
      * 请求成功
      */
-
     @Override
     public void requestSuccess(List datas, boolean isRefresh) {
         if (isRefresh) {
-            mRefreshAdapter.setNewData(datas);
+            mRefreshAdapter.setList(datas);
             mSrhLayout.setRefreshing(false);
             mRecyclerView.scrollToPosition(0);
         } else {
@@ -232,11 +208,11 @@ public abstract class BaseRefreshActivity<T, K extends BaseViewHolder> extends B
     /**
      * 请求失败
      *
-     * @param isRefresh
      * @param e
+     * @param isRefresh
      */
     @Override
-    public void requestFail(boolean isRefresh, Throwable e) {
+    public void requestFail(Throwable e, boolean isRefresh) {
         if (isRefresh) {
             mSrhLayout.setRefreshing(false);
             if (mRefreshAdapter != null) {

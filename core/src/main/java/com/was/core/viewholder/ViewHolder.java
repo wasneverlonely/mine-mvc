@@ -1,4 +1,4 @@
-package com.was.core.widget;
+package com.was.core.viewholder;
 
 import android.content.Context;
 import android.view.View;

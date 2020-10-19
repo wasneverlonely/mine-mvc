@@ -1,9 +1,8 @@
-package com.was.minemvc.bean;
+package com.was.minemvc.data.bean;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import com.was.minemvc.R;
 

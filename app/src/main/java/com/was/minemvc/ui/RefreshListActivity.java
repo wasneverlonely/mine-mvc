@@ -9,15 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.was.core.common.http.ProgressSubscriber;
 import com.was.core.utils.ToastUtils;
 import com.was.minemvc.R;
 import com.was.minemvc.adapter.RefreshListAdapter;
-import com.was.minemvc.bean.HttpResult;
-import com.was.minemvc.bean.ProvinceBean;
-import com.was.minemvc.bean.SchoolUniformBean;
+import com.was.minemvc.data.HttpResult;
+import com.was.minemvc.data.bean.SchoolUniformBean;
 import com.was.minemvc.common.HttpHelper;
 import com.was.minemvc.common.base.BaseRefreshActivity;
 
@@ -29,21 +27,21 @@ import rx.Observable;
 
 public class RefreshListActivity extends BaseRefreshActivity {
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
     @BindView(R.id.srhLayout)
     SwipeRefreshLayout srhLayout;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_refresh);
+        setContentView(R.layout.activity_refresh_list);
         ButterKnife.bind(this);
 
         setBack();
         setTitleText("刷新列表");
 
-        setView(recyclerView, srhLayout);
+        setView(srhLayout, recyclerView);
         start();
     }
 
@@ -77,7 +75,7 @@ public class RefreshListActivity extends BaseRefreshActivity {
             @Override
             public void onFail(Throwable e) {
                 super.onFail(e);
-                requestFail(isRefresh, e);
+                requestFail(e, isRefresh);
             }
         });
     }

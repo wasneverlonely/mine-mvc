@@ -3,14 +3,14 @@ package com.was.minemvc.common.base;
 import android.os.Build;
 import android.view.View;
 
-import com.was.core.base.ToolActivity;
+import com.was.core.common.base.BaseToolActivity;
 import com.was.core.utils.StatusBarUtils;
 import com.was.minemvc.R;
 
 /**
  * 项目基类
  */
-public class BaseActivity extends ToolActivity {
+public class BaseActivity extends BaseToolActivity {
 
     /**
      * 返回

@@ -12,9 +12,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.was.core.adapter.FgtTabPagerAdapter;
-import com.was.core.base.tab.ITabPage;
-import com.was.core.base.tab.PageStateChangeListener;
-import com.was.core.base.tab.PageStateChangeObservable;
+import com.was.core.common.base.tab.ITabPage;
+import com.was.core.common.base.tab.PageStateChangeListener;
+import com.was.core.common.base.tab.PageStateChangeObservable;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

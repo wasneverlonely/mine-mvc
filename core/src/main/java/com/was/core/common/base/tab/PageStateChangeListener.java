@@ -1,4 +1,4 @@
-package com.was.core.base.tab;
+package com.was.core.common.base.tab;
 
 import androidx.viewpager.widget.ViewPager;
 

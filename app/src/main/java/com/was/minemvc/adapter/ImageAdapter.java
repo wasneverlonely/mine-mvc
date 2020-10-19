@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.was.minemvc.bean.DataBean;
+import com.was.minemvc.data.bean.DataBean;
 import com.youth.banner.adapter.BannerAdapter;
 
 import java.util.List;

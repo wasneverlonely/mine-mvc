@@ -1,4 +1,4 @@
-package com.was.core.base;
+package com.was.core.common.base;
 
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 /**
- * 标头管理类
+ * 标题管理类
  */
 public class TitleManager {
 

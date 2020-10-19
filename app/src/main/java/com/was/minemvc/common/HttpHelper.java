@@ -5,7 +5,8 @@ import com.was.core.common.http.ApiException;
 import com.was.core.common.http.PrintReqeustInterceptor;
 import com.was.core.common.http.print.PrintGsonConverterFactory;
 import com.was.core.utils.L;
-import com.was.minemvc.bean.HttpResult;
+import com.was.minemvc.data.Api;
+import com.was.minemvc.data.HttpResult;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,9 +21,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
+
 /**
  * Created by liukun on 16/3/9.
- * <p>
  * <p>
  * 网络请求工具类  所有的网络请求调用这个里面的工具类
  */
@@ -48,31 +49,25 @@ public class HttpHelper {
 
     static Retrofit retrofit;
 
-
-    //在访问HttpMethods时创建单例
-    private static class SingletonHolder {
-        private static final HttpHelper INSTANCE = new HttpHelper();
-    }
-
     //获取单例
     public static HttpHelper getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
-    //构造方法私有
+    private static class SingletonHolder {
+        private static final HttpHelper INSTANCE = new HttpHelper();
+    }
+
     private HttpHelper() {
         initRetrofit();
     }
 
-
-    /**
-     * 初始化 initRetorfit
-     */
+    //初始化 initRetorfit
     public static void initRetrofit() {
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)//设置超时时间
-                .addInterceptor(new PrintReqeustInterceptor());//设置加密拦截
+                .addInterceptor(new PrintReqeustInterceptor());//设置请求打印拦截
 
         retrofit = new Retrofit.Builder()
                 .client(builder.build())
@@ -81,7 +76,7 @@ public class HttpHelper {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(Config.getNetworkPath())
                 .build();
-        L.e("  " + Config.getNetworkPath());
+        L.i(" 网络地址 ------------>  " + Config.getNetworkPath());
         api = retrofit.create(Api.class);
     }
 
@@ -111,7 +106,6 @@ public class HttpHelper {
         if (observable == null) {
             return;
         }
-
         Observable<T> map = observable.map(new HttpResultFunc<T>());
         originalToSubscribe(map, subscriber);
     }

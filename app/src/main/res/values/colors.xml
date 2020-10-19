@@ -19,5 +19,7 @@
     <color name="cl_red_d0252e">#FFD0252E</color>
     <color name="colorBlue">#1577FE</color>
     <color name="colorGray6">#666666</color>
-
+    <color name="cl_fa">#fafafa</color>
+    <color name="cl_e0ff6100">#E0FF6100</color>
+    <color name="cl_9b">#9b9b9b</color>
 </resources>

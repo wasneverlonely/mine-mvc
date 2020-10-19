@@ -1,7 +1,7 @@
 package com.was.minemvc.common.base;
 
 
-import com.was.core.base.NoPreload;
+import com.was.core.common.base.NoPreload;
 
 /**
  * Created by Administrator on 2016/12/29.
